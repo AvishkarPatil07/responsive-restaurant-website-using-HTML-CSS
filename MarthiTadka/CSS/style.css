@@ -1,0 +1,447 @@
+/*Navbar-----------------------------------------------------------------------------------------*/
+
+nav {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    right: 0;
+    font-family: "Montserrat", sans-serif;
+    height: 80px;
+    padding: 0 5%;
+    background: linear-gradient(to bottom left, #8de7ef 40%, #9ea9ff 100%);
+}
+
+nav .logo {
+    float: left;
+    width: 40%;
+    height: 100%;
+   display: flex;
+    align-items: center;
+    font-size: 40px;
+    color: #f1f1f4;
+    font-weight: bold;
+    font-family: "Sofia", sans-serif;
+    text-decoration: underline;
+}
+
+
+nav .links {
+    float: right;
+    padding: 0;
+    margin: 10px;
+    width: 40%;
+    height: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+nav .links li {
+    list-style: none;
+}
+
+nav .links li a {
+    display: block;
+    padding: 2em;
+    font-size: 16px;
+    font-weight: bold;
+    color:#f4f7f8;
+    text-decoration: none;
+    border: 12px black;
+
+}
+nav .links li a:hover{
+  
+    color: #0014FF;
+    text-decoration: underline;
+
+}
+
+#nav-toggle {
+    position: absolute;
+    top: -100px;
+}
+
+nav .icon-burger {
+    display: none;
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+nav .icon-burger .line {
+    width: 30px;
+    height: 5px;
+    background: #fff;
+    margin: 5px;
+    border-radius: 3px;
+    transition: all .3s ease-in-out;
+}
+
+@media screen and (max-width:1200px) {
+    nav {
+        padding: 0 3%;
+    }
+
+    nav .links {
+        width: 75%;
+    }
+
+    nav .logo {
+        width: 25%;
+    }
+
+}
+
+
+@media screen and (max-width:992px) {
+    nav .links {
+        float: none;
+        position: fixed;
+        z-index: 9;
+        left: 0;
+        right: 0;
+        top: 100px;
+        bottom: 100%;
+        background: rgba(0, 0, 0, .8);
+        flex-direction: column;
+        width: auto;
+        height: auto;
+        overflow: hidden;
+        transition: all .5s ease-in-out;
+    }
+
+    nav .links a {
+        font-size: 20px;
+    }
+
+    nav .icon-burger {
+        display: block;
+    }
+
+    nav :checked~.links {
+        bottom: 0;
+    }
+
+    nav :checked~.icon-burger .line:nth-child(1) {
+        transform: translateY(10px) rotate(225deg);
+    }
+
+    nav :checked~.icon-burger .line:nth-child(2) {
+        opacity: 0;
+    }
+
+    nav :checked~.icon-burger .line:nth-child(3) {
+        transform: translateY(-10px) rotate(-225deg);
+    }
+}
+
+
+/*Carsoul--------------------------------------------------------------------------*/
+html,
+body {
+    margin: 0px;
+    padding: 0px;
+    background: url("http://digital.bnint.com/filelib/s9/photos/white_wood_4500x3000_lo_res.jpg");
+}
+
+.carousel {
+    position: relative;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.64);
+    margin-top: 26px;
+}
+
+.carousel-inner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-open:checked+.carousel-item {
+    position: static;
+    opacity: 100;
+}
+
+.carousel-item {
+    position: absolute;
+    opacity: 0;
+    -webkit-transition: opacity 0.6s ease-out;
+    transition: opacity 0.6s ease-out;
+}
+
+.carousel-item img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+.carousel-control {
+    background: rgba(0, 0, 0, 0.28);
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    font-size: 40px;
+    height: 40px;
+    line-height: 35px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    cursor: pointer;
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    text-align: center;
+    width: 40px;
+    z-index: 10;
+}
+
+.carousel-control.prev {
+    left: 2%;
+}
+
+.carousel-control.next {
+    right: 2%;
+}
+
+.carousel-control:hover {
+    background: rgba(0, 0, 0, 0.8);
+    color: #aaaaaa;
+}
+
+#carousel-1:checked~.control-1,
+#carousel-2:checked~.control-2,
+#carousel-3:checked~.control-3 {
+    display: block;
+}
+
+.carousel-indicators {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 2%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+}
+
+.carousel-indicators li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.carousel-bullet {
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 35px;
+}
+
+.carousel-bullet:hover {
+    color: #aaaaaa;
+}
+
+#carousel-1:checked~.control-1~.carousel-indicators li:nth-child(1) .carousel-bullet,
+#carousel-2:checked~.control-2~.carousel-indicators li:nth-child(2) .carousel-bullet,
+#carousel-3:checked~.control-3~.carousel-indicators li:nth-child(3) .carousel-bullet {
+    color: #428bca;
+}
+
+#title {
+    width: 100%;
+    position: absolute;
+    padding: 0px;
+    margin: 0px auto;
+    text-align: center;
+    font-size: 27px;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Open Sans', sans-serif;
+    z-index: 9999;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.33), -1px 0px 2px rgba(255, 255, 255, 0);
+}
+
+
+/*------------------INFO----------------------------------------------------*/
+main{
+
+ 
+    text-align: center;
+    padding-top: 80px;
+}
+h1{
+    font-size: 100px;
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+ }
+ 
+ p{
+     font-size: 18px;
+     color: rgb(0, 0, 0);
+     font-family: Arial, Helvetica, sans-serif;
+ }
+ a{
+     color: rgb(7, 205, 249);
+     font-family: Arial, Helvetica, sans-serif;
+     /*text-decoration: none;*/
+ }
+
+
+/*------------------CARD----------------------------------------------------*/
+ /* Font */
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+
+/* Design */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #ecf9ff;
+}
+
+body {
+  color: #272727;
+  font-family: 'Quicksand', serif;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 1rem;
+}
+
+.main{
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 400;
+    text-align: center;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.btn {
+  color: #000000;
+  padding: 0.8rem;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-weight: 400;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+}
+
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards_item {
+  display: flex;
+  padding: 1rem;
+}
+
+@media (min-width: 40rem) {
+  .cards_item {
+    width: 50%;
+  }
+}
+
+@media (min-width: 56rem) {
+  .cards_item {
+    width: 33.3333%;
+  }
+}
+
+.card {
+  background-color: rgb(0, 0, 0);
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card_content {
+  padding: 1rem;
+  background: linear-gradient(to bottom left, #8de7ef 40%, #9ea9ff 100%);
+}
+
+.card_title {
+  color: #000000;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin: 0px;
+}
+
+.card_text {
+  color: #000000;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;    
+  font-weight: 400;
+}
+.made_by{
+  font-weight: 400;
+  font-size: 13px;
+  margin-top: 35px;
+  text-align: center;
+}
+
+/*---------------------footer---------------------------------*/
+footer {
+    text-align: center;
+   /* position: fixed;*/
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    background: linear-gradient(to bottom left, #8de7ef 40%, #9ea9ff 100%);
+    color: rgb(246, 246, 248);
+    text-align: center;
+ }
+
+
+ 
+ /*MAP-----------------------------------------------------------*/
+.map {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    height: 0;
+    margin: 40px;
+    margin-top:0px;
+    border:5px black
+}
+
+.map iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+
+}
